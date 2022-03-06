@@ -1,21 +1,5 @@
 import { Schema, model } from 'mongoose'
-
-interface PriceInterface {
-  currency: string
-  value: number
-}
-interface ProductInterface {
-  title: string
-  display_image?: string
-  description: string
-  brand: string
-  category: string
-  tags?: string[]
-  available: boolean
-  is_best_seller?: boolean
-  price: PriceInterface
-
-}
+import { IProduct } from '../types/models'
 
 const priceSchema = new Schema({
   currency: {
@@ -36,7 +20,8 @@ const productSchema = new Schema(
     },
     display_image: {
       type: String,
-      required: false
+      required: false,
+      alias: 'displayImage'
     },
     description: {
       type: String,
@@ -60,7 +45,8 @@ const productSchema = new Schema(
     },
     is_best_seller: {
       type: Boolean,
-      reqiured: false
+      reqiured: false,
+      alias: 'isBestSeller'
     },
     price: priceSchema
   },
@@ -69,6 +55,5 @@ const productSchema = new Schema(
   }
 )
 
-const Product = model<ProductInterface>('User', productSchema)
-
+const Product = model<IProduct>('Product', productSchema)
 export default Product
