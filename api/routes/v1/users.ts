@@ -6,5 +6,7 @@ const baseRouter = Router()
 
 baseRouter.route('/')
   .post(userController.createUser)
+baseRouter.route('/login')
+  .post(userController.login)
 
 export default baseRouter
