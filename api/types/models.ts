@@ -13,3 +13,25 @@ export interface IUser extends TimeStamps {
 export type UserDocumentModel = Document<unknown, any, IUser> & IUser & {
   _id: Types.ObjectId
 }
+
+// ----- Products -----
+
+export interface PriceInterface {
+  currency: string
+  value: number
+}
+export interface IProduct {
+  title: string
+  displayImage?: string
+  description: string
+  brand: string
+  category: string
+  tags?: string[]
+  available: boolean
+  isBestSeller?: boolean
+  price: PriceInterface
+
+}
+export type ProductDocumentModel = Document<unknown, any, IProduct> & IProduct & {
+  _id: Types.ObjectId
+}
