@@ -12,7 +12,7 @@ const routes = Router()
  * @param mountPath version directory name
  * @param route Router object to mount the endpoints
  */
-function routeMounter (mountPath: string, route: Router) {
+function routeMounter (mountPath: string, route: Router): void {
   try {
     fs.readdirSync(path.join(__dirname, mountPath))
       .filter(
@@ -29,6 +29,7 @@ function routeMounter (mountPath: string, route: Router) {
        Eg: users from users.js
       */
         const endpoint = `/${mountPath}/${file.substring(0, file.length - 3)}`
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const moduleRoutes = require(path.join(__dirname, mountPath, file))
           .default
 
