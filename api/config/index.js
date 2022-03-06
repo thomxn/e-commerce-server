@@ -10,5 +10,7 @@ module.exports = {
     folder: process.env.LOG_PATH || './logs/',
     file: process.env.LOG_FILE || 'server-log-%DATE%.log',
     level: process.env.LOG_LEVEL || 'silly' // Change this to info in production. IMPORTANT!
-  }
+  },
+  passwordSaltRounds: 8,
+  accessTokenExpiryInSeconds: 3600
 }

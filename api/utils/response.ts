@@ -31,7 +31,7 @@ export const errorResponse =
     applyResponseHeaders(res, headers)
     if (body == null) {
       body = {
-        message: 'Something went wrong'
+        message: 'Something went bad at our end. Please try again later'
       }
     }
     logger.error(`Error response - ${status ?? 500} - `, { body })
