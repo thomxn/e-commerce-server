@@ -1,4 +1,4 @@
-import { query } from 'express-validator'
+import { query, param } from 'express-validator'
 
 const MAX_CHARS = 2048
 
@@ -6,30 +6,35 @@ export const getProductsValidator = [
   query('title')
     .optional()
     .isLength({ max: MAX_CHARS })
-    .withMessage('Value is too long '),
+    .withMessage('title is too long '),
   query('brand')
     .optional()
     .isLength({ max: MAX_CHARS })
-    .withMessage('Value is too long '),
+    .withMessage('brand is too long '),
   query('category')
     .optional()
     .isLength({ max: MAX_CHARS })
-    .withMessage('Value is too long '),
+    .withMessage('category is too long '),
   query('tags')
     .optional()
     .isLength({ max: MAX_CHARS })
-    .withMessage('Value is too long '),
+    .withMessage('tags is too long '),
   query('price')
     .optional()
     .isFloat()
     .toFloat()
-    .withMessage('Must be number'),
+    .withMessage('price must be number'),
   query('available')
     .optional()
-    .isBoolean().withMessage('Must be boolean')
+    .isBoolean().withMessage('available must be boolean')
     .toBoolean(),
   query('isBestSeller')
     .optional()
-    .isBoolean().withMessage('Must be boolean')
+    .isBoolean().withMessage('isBestSeller must be boolean')
     .toBoolean()
+]
+
+export const getProductValidator = [
+  param('id')
+    .isLength({ min: 24, max: 24 }).withMessage('id must be 24 character hex value')
 ]
