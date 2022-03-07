@@ -1,5 +1,5 @@
 import Product from '../models/product'
-import { ProductDocumentModel } from '../types/models'
+import { BaseProduct, ProductDocumentModel } from '../types/models'
 import { ProductFilters } from '../types/requests'
 import logger from '../utils/logger'
 
@@ -39,6 +39,9 @@ const getProducts = async (filterOptions: ProductFilters): Promise<ProductDocume
 
   return products
 }
+const getProductById = async (id: string): Promise<ProductDocumentModel | null> => {
+  return await Product.findById(id)
+}
 
 const prepareProductfilters = (options: ProductFilters): any => {
   const filters: any = {
@@ -65,8 +68,8 @@ const prepareProductfilters = (options: ProductFilters): any => {
 
   if (options.tags !== undefined && options.tags.length !== 0) {
     filters.$and.push({
-      category: {
-        $in: options.tags.split(',')
+      tags: {
+        $in: options.tags.split(',').map(tag => tag.trim())
       }
     })
   }
@@ -93,6 +96,26 @@ const prepareProductfilters = (options: ProductFilters): any => {
   return filters.$and.length !== 0 ? filters : null
 }
 
+export const formatProduct = (product: ProductDocumentModel): BaseProduct => {
+  return {
+    id: product.id,
+    title: product.title,
+    displayImage: product.displayImage,
+    description: product.description,
+    brand: product.brand,
+    category: product.category,
+    tags: product.tags,
+    available: product.available,
+    isBestSeller: product.isBestSeller,
+    price: {
+      currency: product.price.currency,
+      value: product.price.value
+    }
+  }
+}
+
 export default {
-  getProducts
+  getProducts,
+  getProductById,
+  formatProduct
 }
