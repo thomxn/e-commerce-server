@@ -32,6 +32,10 @@ export interface IProduct {
   price: PriceInterface
 
 }
+
+export interface BaseProduct extends IProduct {
+  id: string
+}
 export type ProductDocumentModel = Document<unknown, any, IProduct> & IProduct & {
   _id: Types.ObjectId
 }
