@@ -1,0 +1,1125 @@
+{
+	"info": {
+		"_postman_id": "dd90eeb2-624f-4694-ac0b-5ba38f8c1e2b",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user / Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Joe Freeman\",\n    \"email\": \"jj@mandy.com\",\n    \"password\": \"!@QWDF\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7000/api/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid Email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Joe Freeman\",\n    \"email\": \"jj@mandycom\",\n    \"password\": \"!@QWDF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-ZvAwAMwyHi+N90h+vLW1GVY/+dc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:23:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Invalid email format\"\n    ]\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Joe Freeman\",\n    \"email\": \"jj@mandycom\",\n    \"password\": \"!@QWDF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private,max-age=0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "238"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ee-bVjVrCt4mw0PIYq1dqJSfdLSPbA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:21:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Joe Freeman\",\n    \"email\": \"jj@mandy.com\",\n    \"password\": \"$2a$08$zC.1iyOYuMAyzt.DbRs3He/zpa2QQ38868QevjXxyNnDSUJzOIv0q\",\n    \"_id\": \"622790b7f2a5cbfaebefd779\",\n    \"createdAt\": \"2022-03-08T17:21:59.664Z\",\n    \"updatedAt\": \"2022-03-08T17:21:59.664Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Login / Signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jj@mandy.com\",\n    \"password\": \"!@QWDF\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7000/api/v1/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid credentials",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jj@mandy.com\",\n    \"password\": \"!@QWDFd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/v1/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private,max-age=0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-+DZBjyZArB14Kiad5aYYtcREfG0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:24:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Invalid email/password\"\n    }\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jj@mandy.com\",\n    \"password\": \"!@QWDF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/v1/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private,max-age=0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "398"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"18e-j/AmLos+YOEswxKzYypcLNj7VZA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:24:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"622790b7f2a5cbfaebefd779\",\n    \"name\": \"Joe Freeman\",\n    \"email\": \"jj@mandy.com\",\n    \"createdAt\": \"2022-03-08T17:21:59.664Z\",\n    \"updatedAt\": \"2022-03-08T17:21:59.664Z\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI3OTBiN2YyYTVjYmZhZWJlZmQ3NzkiLCJuYW1lIjoiSm9lIEZyZWVtYW4iLCJlbWFpbCI6ImpqQG1hbmR5LmNvbSIsImlhdCI6MTY0Njc2MDI0NiwiZXhwIjoxNjQ2NzYzODQ2fQ.bbxqJfKJXA2GS_V0aL4BcLvjyrYyTEpRImJg9veAm8w\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7000/api/v1/products?brand=Nintendo&price=239&title=switch&available=false&price=100&isBestSeller=false&tags=switch, portable",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "Nintendo"
+						},
+						{
+							"key": "price",
+							"value": "239"
+						},
+						{
+							"key": "title",
+							"value": "switch"
+						},
+						{
+							"key": "available",
+							"value": "false"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "isBestSeller",
+							"value": "false"
+						},
+						{
+							"key": "tags",
+							"value": "switch, portable"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/v1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "239",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "Trio",
+									"disabled": true
+								},
+								{
+									"key": "rating",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "available",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "1500",
+									"disabled": true
+								},
+								{
+									"key": "isBestSeller",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "nvidia, laptop",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private,max-age=0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "8418"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"20e2-0TCSPYdq2h+ppXlAGj23/gE+GS0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:43:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"622795b42eba6edfa57acac9\",\n        \"title\": \"Nintendo Switch\",\n        \"description\": \"Hast du schon mal ein Spiel abgebrochen, weil du nicht genug Zeit zum Spielen hattest? Die Nintendo Switch-Konsole passt sich deiner Situation an, damit du trotz der täglichen Hektik die Spiele spielen kannst, die du spielen willst. In dieser neuen Ära musst du dein Leben nicht anpassen, um Spiele spielen zu können – stattdessen passt sich deine Konsole deinen Umständen an. Spiele wann, wo und mit wem du willst, mit der Freiheit und Flexibilität der verschiedenen Spielmodi.\",\n        \"brand\": \"Nintendo\",\n        \"category\": \"Gaming\",\n        \"tags\": [\n            \"nintendo\",\n            \"switch\",\n            \"joycon\",\n            \"portable\",\n            \"gaming\"\n        ],\n        \"available\": false,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 305\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/190827093705200601900068F?$Zoom_1000$\",\n        \"isBestSeller\": false\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac8\",\n        \"title\": \"SanDisk Ultra Dual Drive Go 128 GB\",\n        \"description\": \"Geben Sie Speicherplatz auf Ihrem Smartphone2 frei oder nutzen Sie den schnellen Dateitransfer zwischen Geräten mit der schnellen USB 3.1-Geschwindigkeit von bis zu 130MB/s. Das SanDisk Ultra® Dual Drive USB Type-C™ verfügt über einen reversiblen USB Type-C™ Anschluss und einen herkömmlichen USB Anschluss zur schnellen und einfachen Dateiübertragung zwischen Smartphones, Tablets und Computern. Mit der SanDisk® Memory Zone App für Android™ (erhältlich auf Google Play™) können Sie den Speicher und die Inhalte Ihres Geräts bequem verwalten. Das SanDisk Ultra Dual Drive USB Type-C ist die perfekte Lösung für Ihre neuen USB Type-C Geräte und Geräte mit herkömmlichen USB Anschlüssen.\",\n        \"brand\": \"SanDisk\",\n        \"category\": \"Storage & Memory\",\n        \"tags\": [\n            \"usb\",\n            \"type c\",\n            \"stick\",\n            \"sandisk\",\n            \"128\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 18\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/191022093731900601900136T?$Zoom_1000$\",\n        \"isBestSeller\": false\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac7\",\n        \"title\": \"Corsair Vengeance LPX 16GB\",\n        \"description\": \"Der VENGEANCE LPX Speicher wurde speziell für leistungsstarke Übertaktung konzipiert. Der Wärmeverteiler besteht aus reinem Aluminium, um die Wärme schneller abzuleiten, während die maßgeschneiderte Hochleistungs-PCB die Wärme kanalisiert und hervorragendes Übertaktungspotenzial bietet. Jeder integrierte Schaltkreis wurde einzeln auf höchstes Leistungspotenzial überprüft.\",\n        \"brand\": \"Corsair\",\n        \"category\": \"Storage & Memory\",\n        \"tags\": [\n            \"ram\",\n            \"memory\",\n            \"ddr4\",\n            \"3200\",\n            \"16\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 60\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/210428101520600301900045F?$Zoom_1000$\",\n        \"isBestSeller\": false\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac6\",\n        \"title\": \"Logitech MX Master 3\",\n        \"description\": \"MX Master 3 steht für Präzision und unbegrenztes Potenzial. Das elektromagnetische MagSpeed-Scrollrad bietet bis zu 90 % mehr Geschwindigkeit, 87 % höhere Präzision ** und wechselt nahezu lautlos zwischen den Modi. App-spezifische Tastenanpassungen beschleunigen Ihren Workflow. Und der Darkfield-Sensor mit 4.000 DPI ermöglicht die Abtastung auf quasi allen Oberflächen – selbst auf Glas.\",\n        \"brand\": \"Logitech\",\n        \"category\": \"Peripherals\",\n        \"tags\": [\n            \"logitech\",\n            \"mouse\",\n            \"wireless\",\n            \"bluetooth\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 97\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/210112143155500301900023V?$Zoom_1000$\",\n        \"isBestSeller\": true\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac5\",\n        \"title\": \"HP B3P06A Druckkopf 727\",\n        \"description\": \"Mit HP 727 Designjet Druckköpfen erzielen Sie mühelos professionelle Ergebnisse in konsistenter Qualität. Dieser Original HP Druckkopf für 6 Farben wurde gemeinsam mit Ihrem Drucker als optimiertes Drucksystem konzipiert. Schwarz matt, schwarz Foto, cyan, magenta, gelb, grau\",\n        \"brand\": \"HP\",\n        \"category\": \"Printers & Ink\",\n        \"tags\": [\n            \"hp\",\n            \"ink\",\n            \"printers\",\n            \"overpriced\",\n            \"tinten\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 300\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/141015144036500701900067K?$Zoom_1000$\",\n        \"isBestSeller\": false\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac4\",\n        \"title\": \"Reishunger Digitaler Mini Reiskocher\",\n        \"description\": \" Der Digitale Mini Reishunger Reiskocher ist ein vollautomatischer Reis- und Multikocher mit insgesamt 8 verschiedenen Programmen. Neben unterschiedlichen Programmen für die Reiszubereitung, verfügt er über eine Dämpffunktion sowie eine Backfunktion. Sobald der Reis gar ist, schaltet sich das Gerät ganz automatisch in den Warmhaltemodus. Im Warmhaltemodus kann der Reis für bis zu 24 Stunden warm gehalten werden. Insgesamt fasst der Reiskocher 0,6l und ist daher perfekt geeignet für 1-3 Personen. Der herausnehmbare Innentopf hat eine Antihaftbeschichtung aus Keramik, sodass der Reis nicht anbrennt. Abnehmen und reinigen lassen sich auch der Innendeckel, das Dampfventil sowie der Auffangbehälter für das Kondenswasser.\",\n        \"brand\": \"Reishunger\",\n        \"category\": \"Household\",\n        \"tags\": [\n            \"rice\",\n            \"cooker\",\n            \"rice cooker\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 107\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/200121165559200301900046O?$Zoom_1000$\",\n        \"isBestSeller\": false\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac3\",\n        \"title\": \"Apple iPhone 12\",\n        \"description\": \"Das iPhone 12 bringt alles in eine neue Dimension mit superschnellem 5G. 1 A14 Bionic, dem schnellsten Chip in einem Smartphone. Einem neuen Zwei-Kamera-System. Und einem faszinierenden Super Retina XDR Display, mit dem du alles in brillanten Details sehen kannst.\",\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphone\",\n        \"tags\": [\n            \"apple\",\n            \"iphone\",\n            \"128\",\n            \"smartphone\",\n            \"phone\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 769\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/201015094757300301900048Z?$Zoom_1000$\",\n        \"isBestSeller\": true\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac2\",\n        \"title\": \"Apple MacBook Air 13,3 Zoll\",\n        \"description\": \"Das MacBook Air ist das dünnste und leichteste Apple Notebook – jetzt verwandelt durch den leistungsstarken Apple M1 Chip. Für einen gigantischen Sprung bei der CPU und Grafikleistung und bis zu 18 Stunden Batterielaufzeit. Das dünnste und leichteste Apple Notebook bekommt die Power des Apple M1 Chip. Erledige deine Projekte mit der superschnellen 8-Core CPU. Bring grafikintensive Apps und Games mit einer bis zu 8-Core GPU aufs nächste Level. Und beschleunige Aufgaben für maschinelles Lernen mit der 16-Core Neural Engine. Alles mit einem leisen, lüfterlosen Design und der längsten Batterielaufzeit, die es je gab – bis zu 18 Stunden. 1 MacBook Air. Immer noch perfekt zum Mitnehmen. Aber jetzt noch viel leistungsstärker.\",\n        \"brand\": \"Apple\",\n        \"category\": \"Laptop\",\n        \"tags\": [\n            \"laptop\",\n            \"apple\",\n            \"13 inch\",\n            \"m1\",\n            \"gray\"\n        ],\n        \"available\": false,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 1449\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/201113143743500701900177C?$Zoom_1000$\",\n        \"isBestSeller\": true\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac1\",\n        \"title\": \"Siemens TI9578X1DE EQ.9 plus\",\n        \"description\": \" Steuern Sie Ihren Kaffeevollautomaten von überall aus mit der innovativen Home Connect App. Individuellere Geschmacksvariationen dank der zusätzlichen Feinaroma-Einstellung im baristaMode. Speichern Sie bis zu zehn individuelle Nutzerprofile und deren persönliche Einstellungen dank individualCoffee System. Zwei Bohnenbehälter mit eigenem Mahlwerk für unverfälschten Geschmack dank des dualBean Systems. Optimale Zubereitung und perfekter Geschmack dank der ausgefeilten Technologie iAroma System\",\n        \"brand\": \"Siemens\",\n        \"category\": \"Household\",\n        \"tags\": [\n            \"coffee\",\n            \"expresso\",\n            \"siemens\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 1945\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/200331115846000701900070W?$Zoom_1000$\",\n        \"isBestSeller\": false\n    },\n    {\n        \"_id\": \"622795b42eba6edfa57acac0\",\n        \"title\": \"MSI GeForce RTX 3090 Gaming X Trio\",\n        \"description\": \"Die Grafikprozessoren der GeForce RTX™ 30-Serie bieten die ultimative Leistung für Gamer und Entwickler. Angetrieben von Ampere, NVIDIAS RTX-Architektur der 2. Generation, und mit neuen RT- und Tensor-Recheneinheiten und Streaming-Multiprozessoren für die realistischste Raytracing-Grafik und die neuesten KI-Funktionen.\",\n        \"brand\": \"MSI\",\n        \"category\": \"Graphics Card\",\n        \"tags\": [\n            \"nvidia\",\n            \"graphics card\",\n            \"gaming\"\n        ],\n        \"available\": true,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 2399\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/200910112702600301900093O?$Zoom_1000$\",\n        \"isBestSeller\": false\n    }\n]"
+				},
+				{
+					"name": "List products - Validation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/v1/products?isBestSeller=test",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Nintendo",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "239",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "switch",
+									"disabled": true
+								},
+								{
+									"key": "available",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "isBestSeller",
+									"value": "test"
+								},
+								{
+									"key": "tags",
+									"value": "switch, portable",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-hw00i8O09xUdLC548vu/IoNliwI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:46:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"isBestSeller must be boolean\"\n    ]\n}"
+				},
+				{
+					"name": "List products - All filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/v1/products?brand=Nintendo&price=239&title=switch&available=false&price=100&isBestSeller=false&tags=switch, portable",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Nintendo"
+								},
+								{
+									"key": "price",
+									"value": "239"
+								},
+								{
+									"key": "title",
+									"value": "switch"
+								},
+								{
+									"key": "available",
+									"value": "false"
+								},
+								{
+									"key": "price",
+									"value": "100"
+								},
+								{
+									"key": "isBestSeller",
+									"value": "false"
+								},
+								{
+									"key": "tags",
+									"value": "switch, portable"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private,max-age=0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "843"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34b-4gEAZwsaLEnD3ec+jQ2talfqH5Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:45:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"622795b42eba6edfa57acac9\",\n        \"title\": \"Nintendo Switch\",\n        \"description\": \"Hast du schon mal ein Spiel abgebrochen, weil du nicht genug Zeit zum Spielen hattest? Die Nintendo Switch-Konsole passt sich deiner Situation an, damit du trotz der täglichen Hektik die Spiele spielen kannst, die du spielen willst. In dieser neuen Ära musst du dein Leben nicht anpassen, um Spiele spielen zu können – stattdessen passt sich deine Konsole deinen Umständen an. Spiele wann, wo und mit wem du willst, mit der Freiheit und Flexibilität der verschiedenen Spielmodi.\",\n        \"brand\": \"Nintendo\",\n        \"category\": \"Gaming\",\n        \"tags\": [\n            \"nintendo\",\n            \"switch\",\n            \"joycon\",\n            \"portable\",\n            \"gaming\"\n        ],\n        \"available\": false,\n        \"price\": {\n            \"currency\": \"EURO\",\n            \"value\": 305\n        },\n        \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/190827093705200601900068F?$Zoom_1000$\",\n        \"isBestSeller\": false\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get product details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7000/api/v1/products/622795b42eba6edfa57acac8",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"622795b42eba6edfa57acac8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ID validation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/v1/products/100",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"100"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-hYsydRWhaLpxFf49Bj3GrTsRW9s\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:48:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"id must be 24 character hex value\"\n    ]\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/v1/products/622795b42eba6edfa57acac8",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"622795b42eba6edfa57acac8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private,max-age=0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1082"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43a-WjzUXVImhSI7BHGIltGAtUj63Y0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 08 Mar 2022 17:47:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"622795b42eba6edfa57acac8\",\n    \"title\": \"SanDisk Ultra Dual Drive Go 128 GB\",\n    \"displayImage\": \"https://cyberport.scene7.com/is/image/cyberport/191022093731900601900136T?$Zoom_1000$\",\n    \"description\": \"Geben Sie Speicherplatz auf Ihrem Smartphone2 frei oder nutzen Sie den schnellen Dateitransfer zwischen Geräten mit der schnellen USB 3.1-Geschwindigkeit von bis zu 130MB/s. Das SanDisk Ultra® Dual Drive USB Type-C™ verfügt über einen reversiblen USB Type-C™ Anschluss und einen herkömmlichen USB Anschluss zur schnellen und einfachen Dateiübertragung zwischen Smartphones, Tablets und Computern. Mit der SanDisk® Memory Zone App für Android™ (erhältlich auf Google Play™) können Sie den Speicher und die Inhalte Ihres Geräts bequem verwalten. Das SanDisk Ultra Dual Drive USB Type-C ist die perfekte Lösung für Ihre neuen USB Type-C Geräte und Geräte mit herkömmlichen USB Anschlüssen.\",\n    \"brand\": \"SanDisk\",\n    \"category\": \"Storage & Memory\",\n    \"tags\": [\n        \"usb\",\n        \"type c\",\n        \"stick\",\n        \"sandisk\",\n        \"128\"\n    ],\n    \"available\": true,\n    \"isBestSeller\": false,\n    \"price\": {\n        \"currency\": \"EURO\",\n        \"value\": 18\n    }\n}"
+				}
+			]
+		}
+	]
+}
