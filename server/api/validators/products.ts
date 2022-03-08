@@ -36,5 +36,6 @@ export const getProductsValidator = [
 
 export const getProductValidator = [
   param('id')
+    .isHexadecimal().withMessage('id must be 24 character hex value')
     .isLength({ min: 24, max: 24 }).withMessage('id must be 24 character hex value')
 ]
