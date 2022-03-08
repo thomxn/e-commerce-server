@@ -1,0 +1,55 @@
+version: '3.3'
+services:
+  redisdb:
+    image: redis
+    restart: unless-stopped
+    env_file: './server/.env'
+    ports:
+      - ${REDIS_EXPOSE_PORT}:${REDIS_PORT}
+    volumes:
+      - redisdbstore:/usr/redis
+    networks:
+      - backend-nw
+    
+  mongodb:
+    image: mongo
+    environment:
+      # provide your credentials here
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_DB}
+    ports:
+      - ${MONGO_EXPOSE_PORT}:${MONGO_PORT}
+    volumes:
+      - mongodbstore:/usr/mongo
+    networks:
+      - backend-nw
+
+  mongo-seed:
+    build:
+      context: ./mongo-seed
+      args:
+        - MONGO_USERNAME=${MONGO_USERNAME}
+        - MONGO_PASSWORD=${MONGO_PASSWORD}
+    depends_on:
+      - mongodb
+    networks:
+      - backend-nw
+  
+  ecommerce-server:
+    depends_on:
+      - redisdb
+      - mongodb
+    build: ./server
+    restart: unless-stopped
+    env_file: ./server/.env
+    ports:
+      - $NODE_PORT:$NODE_PORT
+    networks:
+      - backend-nw
+
+volumes: 
+  redisdbstore:
+  mongodbstore:
+networks:
+  backend-nw:

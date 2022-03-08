@@ -9,7 +9,7 @@
     "dev:watch": "nodemon --config nodemon.json",
     "lint": "npx ts-standard",
     "clean": "rimraf ./build",
-    "build": "npm run lint && npm run clean && tsc && rimraf ./build/tests",
+    "build": "npm run lint && npm run clean && npx tsc && rimraf ./build/tests",
     "build:watch": "tsc -w"
   },
   "repository": {
@@ -53,6 +53,6 @@
     "ts-jest": "^27.1.2",
     "ts-node": "^9.0.0",
     "ts-standard": "^11.0.0",
-    "typescript": "^3.9.7"
+    "typescript": "4.4.2"
   }
 }

@@ -13,8 +13,15 @@ module.exports = {
   },
   passwordSaltRounds: 8,
   accessTokenExpiryInSeconds: 3600,
+  mongo: {
+    db: process.env.MONGO_DBNAME || 'ecommerce',
+    port: process.env.MONGO_PORT || 27017,
+    user: process.env.MONGO_USERNAME || 'root',
+    password: process.env.MONGO_PASSWORD || 'root',
+    host: process.env.MONGO_HOST || 'mongodb'
+  },
   redis: {
-    host: process.env.REDIS_HOST || 'localhost',
+    host: process.env.REDIS_HOST || 'redisdb',
     port: process.env.REDIS_PORT || 6379,
     password: process.env.REDIS_PASS
   }

@@ -1,11 +1,15 @@
 import mongoose from 'mongoose'
+import config from '../config'
 import logger from '../utils/logger'
 
 // const env = config.nodeEnv
 
+const { mongo: mongoConfig } = config
+
 const initDB = (): void => {
-  mongoose.connect('mongodb://root:root@localhost:27017', {
-    dbName: 'ecommerce'
+  console.log('URL', `mongodb://${mongoConfig.user}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}`)
+  mongoose.connect(`mongodb://${mongoConfig.user}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}`, {
+    dbName: config.mongo.db
   })
     .then(() => {
       logger.info('DB initialised!')
