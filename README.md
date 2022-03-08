@@ -1,21 +1,23 @@
-## Welcome to Tyno
+# Ecommerce
 
-### Envirorment
-* NodeJS v12.17.0 
-* NPM v6.14.4
-* PostgreSQL 12.4+
+## Design
 
-### Setup
-1. Clone the repo
-2. Get into the directory
-3. Run `npm install`
+![system-design](system-diagram.png)
 
-### Run/Build
-Execute `npm run dev:watch` to start the server and watch for file changes
+## Setup
+1. Clone repo
+2. Open repo from terminal
+3. Run `docker-compose up`
 
-To take build execute `npx tsc --build tsconfig.json` and checkout the `./build` directory
+### Developer Notes
 
-### Learn
-Head over to [Sequelize](https://sequelize.org/master/manual/typescript.html#usage) to get an understanding of the ORM and its functionalities
+Since the project has to be out of the box without any modifications, `.env` is also commited in the code
 
+- Web part stuff is not implemeted
+- `order` APIs are not implemented
+- Running tests consecutively will throw error in user creation API since the first record is not deleted
+- Use `.env.local` to run the project separately outside outside docker (`cd /server` and run `npm run dev:watch`)
+- Run `fuser -k PORT/tcp` in case of **EADDRESINUSE**
+- Change `LOG_LEVEL` to `info` before going to production
 
+Cheers!
