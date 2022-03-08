@@ -18,7 +18,7 @@ const initDB = (): void => {
       logger.info('DB initialised!')
     })
     .catch(err => {
-      console.error('DB initialisation failed' + JSON.stringify(err))
+      logger.error('DB initialisation failed' + JSON.stringify(err))
     })
 }
 

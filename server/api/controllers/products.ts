@@ -8,13 +8,12 @@ import { ProductFilters } from '../types/requests'
 const getProducts = async (req: Request, res: Response): Promise<Response> => {
   try {
     logger.debug(req.headers)
-    console.log(req.query)
     const requestBody: ProductFilters = req.query
     const products = await productService.getProducts(requestBody)
 
     return successResponse(res, StatusCodes.OK, products)
   } catch (err) {
-    console.error(err)
+    logger.error(err)
     return errorResponse(res, StatusCodes.INTERNAL_SERVER_ERROR)
   }
 }
@@ -28,7 +27,7 @@ const getProduct = async (req: Request, res: Response): Promise<Response> => {
 
     return errorResponse(res, StatusCodes.INTERNAL_SERVER_ERROR)
   } catch (err) {
-    console.error(err)
+    logger.error(err)
     return errorResponse(res, StatusCodes.INTERNAL_SERVER_ERROR)
   }
 }

@@ -4,8 +4,6 @@ import config from './config'
 
 const PORT = config.port
 
-console.log(PORT)
-
 if (PORT === null || PORT === undefined || isNaN(PORT)) {
   logger.error('Please specify a proper port for the App')
   process.exit(1)

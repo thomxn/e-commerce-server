@@ -8,7 +8,6 @@ describe('Cipher utility', () => {
   })
   it('should generate hashed text from input', async () => {
     const hashedPassword = hashPassword('password')
-    console.log(hashedPassword)
     expect(typeof hashedPassword).toEqual('string')
   })
   it('should succed in comparing hashed and original password', async () => {
