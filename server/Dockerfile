@@ -17,7 +17,7 @@ FROM node:12.18.3-alpine3.12
 
 RUN mkdir -p /usr/src/server
 
-COPY --from=build-marker /opt/app-build/build/ /usr/src/server/
+COPY --from=build-marker /opt/app-build/build/api /usr/src/server/
 COPY --from=build-marker /opt/app-build/package*.json /usr/src/server/
 
 WORKDIR /usr/src/server/

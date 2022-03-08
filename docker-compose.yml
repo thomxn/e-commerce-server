@@ -4,8 +4,6 @@ services:
     image: redis
     restart: unless-stopped
     # Read ENV values from .env in the root
-    ports:
-      - ${REDIS_EXPOSE_PORT}:${REDIS_PORT}
     volumes:
       - redisdbstore:/usr/redis
     networks:
@@ -18,8 +16,6 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
       - MONGO_INITDB_DATABASE=${MONGO_DB}
-    ports:
-      - ${MONGO_EXPOSE_PORT}:${MONGO_PORT}
     volumes:
       - mongodbstore:/usr/mongo
     networks:
