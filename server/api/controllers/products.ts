@@ -25,7 +25,9 @@ const getProduct = async (req: Request, res: Response): Promise<Response> => {
       return successResponse(res, StatusCodes.OK, formatProduct(product))
     }
 
-    return errorResponse(res, StatusCodes.INTERNAL_SERVER_ERROR)
+    return errorResponse(res, StatusCodes.NOT_FOUND, {
+      message: 'Prouct not found!'
+    })
   } catch (err) {
     logger.error(err)
     return errorResponse(res, StatusCodes.INTERNAL_SERVER_ERROR)
