@@ -3,6 +3,7 @@ services:
   redisdb:
     image: redis
     restart: unless-stopped
+    # Read ENV values from .env in the root
     ports:
       - ${REDIS_EXPOSE_PORT}:${REDIS_PORT}
     volumes:
@@ -13,7 +14,7 @@ services:
   mongodb:
     image: mongo
     environment:
-      # provide your credentials here
+    # ENV values for mongo init
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
       - MONGO_INITDB_DATABASE=${MONGO_DB}
@@ -27,6 +28,7 @@ services:
   mongo-seed:
     build:
       context: ./mongo-seed
+      # Pass credential as arguments to respective Dockerfile build runtime
       args:
         - MONGO_USERNAME=${MONGO_USERNAME}
         - MONGO_PASSWORD=${MONGO_PASSWORD}
@@ -39,7 +41,11 @@ services:
     depends_on:
       - redisdb
       - mongodb
-    build: ./server
+    build:
+      context: ./server
+      args:
+        - NODE_PORT=${NODE_PORT}
+
     restart: unless-stopped
     env_file: ./server/.env
     ports:

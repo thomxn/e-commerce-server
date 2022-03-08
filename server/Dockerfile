@@ -21,11 +21,13 @@ COPY --from=build-marker /opt/app-build/build/ /usr/src/server/
 COPY --from=build-marker /opt/app-build/package*.json /usr/src/server/
 
 WORKDIR /usr/src/server/
+ARG NODE_PORT
 
+# bcrypt lib requires compilation after download
 RUN apk add g++ make python3
 RUN ls -l
 
 RUN npm install --production
 
-EXPOSE 7000
+EXPOSE ${NODE_PORT}
 CMD ["node", "server.js"]
