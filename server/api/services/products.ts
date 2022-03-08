@@ -1,4 +1,4 @@
-import Product from '../models/product'
+import DB from '../models'
 import { BaseProduct, ProductDocumentModel } from '../types/models'
 import { ProductFilters } from '../types/requests'
 import logger from '../utils/logger'
@@ -35,12 +35,12 @@ const getProducts = async (filterOptions: ProductFilters): Promise<ProductDocume
     }
   })
 
-  const products = await Product.aggregate(productAggregation)
+  const products = await DB.Product.aggregate(productAggregation)
 
   return products
 }
 const getProductById = async (id: string): Promise<ProductDocumentModel | null> => {
-  return await Product.findById(id)
+  return await DB.Product.findById(id)
 }
 
 const prepareProductfilters = (options: ProductFilters): any => {

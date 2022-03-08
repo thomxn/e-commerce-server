@@ -2,10 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import routes from './routes'
-import initDB from './models'
 import audit from './utils/audit'
-
-initDB()
 
 const app = express()
 app.use(helmet())

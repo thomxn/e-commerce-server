@@ -2,13 +2,16 @@ import mongoose from 'mongoose'
 import config from '../config'
 import logger from '../utils/logger'
 
-// const env = config.nodeEnv
+import Product from './product'
+import User from './user'
 
 const { mongo: mongoConfig } = config
 
 const initDB = (): void => {
-  console.log('URL', `mongodb://${mongoConfig.user}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}`)
-  mongoose.connect(`mongodb://${mongoConfig.user}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}`, {
+  const connectionString = `mongodb://${mongoConfig.user}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}`
+  logger.debug('Mongo connection URI ' + connectionString)
+
+  mongoose.connect(connectionString, {
     dbName: config.mongo.db
   })
     .then(() => {
@@ -19,4 +22,17 @@ const initDB = (): void => {
     })
 }
 
-export default initDB
+const closeMongoConnection = () => {
+  mongoose.connection.close()
+}
+
+initDB()
+
+process.on('exit', closeMongoConnection)
+process.on('SIGUSR1', closeMongoConnection)
+process.on('SIGUSR2', closeMongoConnection)
+
+export default {
+  User,
+  Product
+}
