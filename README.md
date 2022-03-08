@@ -1,5 +1,9 @@
 # Ecommerce
 
+## Design
+
+![system-design](system-diagram.png)
+
 ## Setup
 1. Clone repo
 2. Open repo from terminal
