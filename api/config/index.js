@@ -12,5 +12,10 @@ module.exports = {
     level: process.env.LOG_LEVEL || 'silly' // Change this to info in production. IMPORTANT!
   },
   passwordSaltRounds: 8,
-  accessTokenExpiryInSeconds: 3600
+  accessTokenExpiryInSeconds: 3600,
+  redis: {
+    host: process.env.REDIS_HOST || 'localhost',
+    port: process.env.REDIS_PORT || 6379,
+    password: process.env.REDIS_PASS
+  }
 }
