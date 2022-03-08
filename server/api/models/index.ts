@@ -22,8 +22,8 @@ const initDB = (): void => {
     })
 }
 
-const closeMongoConnection = () => {
-  mongoose.connection.close()
+const closeMongoConnection = (): void => {
+  void mongoose.connection.close()
 }
 
 initDB()

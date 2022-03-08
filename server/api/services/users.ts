@@ -28,13 +28,12 @@ const getUserByEmailAndPassword = async (credentials: UserCredentials): Promise<
 }
 
 const deleteUserById = async (id: string): Promise<boolean> => {
-  try{
+  try {
     await DB.User.findByIdAndRemove(id)
     return true
-  }
-  catch(err){
+  } catch (err) {
     logger.error('User delete failed' + JSON.stringify(err))
-    return false;
+    return false
   }
 }
 export default {
