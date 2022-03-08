@@ -1,11 +1,12 @@
 import { Router } from 'express'
 import userController from '../../controllers/users'
-// import authenticate from '../../utils/authentication'
+import { createUserValidator } from '../../validators/users'
+import validator from '../../validators'
 
 const baseRouter = Router()
 
 baseRouter.route('/')
-  .post(userController.createUser)
+  .post(validator(createUserValidator), userController.createUser)
 baseRouter.route('/login')
   .post(userController.login)
 
