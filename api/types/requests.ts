@@ -1,3 +1,5 @@
+import { UserDocumentModel } from './models'
+
 declare global{
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
@@ -6,15 +8,17 @@ declare global{
     }
   }
 }
-export interface UserCredentials {
-  email: string
-  password: string
-}
+export interface UserCredentials extends Pick<UserDocumentModel, 'email' | 'password'> {}
 
-export interface UserIdentityToken {
-  _id: string
-  name: string
-  email: string
-  createdAt: string
-  updatedAt: string
+export interface UserIdentityToken extends Pick<UserDocumentModel, '_id' | 'name' | 'email' | 'createdAt' | 'updatedAt'> {}
+
+export interface ProductFilters {
+  title?: string
+  brand?: string
+  rating?: number
+  category?: string
+  tags?: string
+  available?: boolean
+  isBestSeller?: boolean
+  price?: number
 }
